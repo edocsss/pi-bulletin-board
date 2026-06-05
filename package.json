@@ -1,0 +1,50 @@
+{
+  "name": "pi-bulletin-board",
+  "version": "0.1.0",
+  "description": "A read-only bulletin board overlay for important Pi agent progress updates",
+  "type": "module",
+  "keywords": [
+    "pi-package",
+    "pi",
+    "pi-coding-agent",
+    "extension",
+    "bulletin-board",
+    "overlay",
+    "progress"
+  ],
+  "author": "Nico Bailon",
+  "license": "MIT",
+  "files": [
+    "src/**/*",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "vitest run --passWithNoTests",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "ci": "npm run typecheck && npm test",
+    "pack:check": "npm run ci && npm pack --dry-run",
+    "pack:local": "npm run ci && npm pack",
+    "publish:dry-run": "npm run ci && npm publish --dry-run"
+  },
+  "pi": {
+    "extensions": ["./src/index.ts"]
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-ai": "*",
+    "@earendil-works/pi-coding-agent": "*",
+    "@earendil-works/pi-tui": "*",
+    "typebox": "*"
+  },
+  "devDependencies": {
+    "@earendil-works/pi-ai": "^0.78.0",
+    "@earendil-works/pi-coding-agent": "^0.78.0",
+    "@earendil-works/pi-tui": "^0.78.0",
+    "@types/node": "^24.0.0",
+    "typebox": "^1.1.38",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
+  }
+}
