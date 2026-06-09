@@ -35,6 +35,22 @@ describe("bulletinBoardExtension", () => {
     expect(pi.on).toHaveBeenCalledWith("session_tree", expect.any(Function));
   });
 
+  it("guides agents to publish selective, high-signal bulletins instead of routine progress", () => {
+    const pi = createPiMock();
+
+    bulletinBoardExtension(pi as never);
+
+    const tool = pi.registerTool.mock.calls[0][0];
+    const toolText = JSON.stringify(tool);
+
+    expect(toolText).toContain("Use publish_bulletin selectively");
+    expect(toolText).toContain("materially change confidence");
+    expect(toolText).toContain("routine file read");
+    expect(toolText).toContain("generic progress note");
+    expect(toolText).toContain("will remain useful as a checkpoint later");
+    expect(toolText).not.toContain("rare");
+  });
+
   it("tells agents to provide markdownDetails as raw Markdown rather than one fenced text block", () => {
     const pi = createPiMock();
 

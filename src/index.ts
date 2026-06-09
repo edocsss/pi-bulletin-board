@@ -143,11 +143,12 @@ export default function bulletinBoardExtension(pi: ExtensionAPI) {
   pi.registerTool({
     name: "publish_bulletin",
     label: "Publish Bulletin",
-    description: "Publish an important progress update to the read-only bulletin board overlay.",
-    promptSnippet: "Publish important long-running task updates to a read-only bulletin board overlay",
+    description: "Publish a high-signal progress update to the read-only bulletin board overlay.",
+    promptSnippet: "Publish meaningful long-running task updates to a read-only bulletin board overlay",
     promptGuidelines: [
-      "Use publish_bulletin only for important progress updates during long-running work, such as meaningful milestones, direction changes, key findings, blockers, decisions, or useful checkpoints.",
-      "Do not use publish_bulletin for every tool call or minor step; keep the main conversation clean and the bulletin board high-signal.",
+      "Use publish_bulletin selectively for meaningful progress updates during substantial work, such as milestones, direction changes, key findings, blockers, decisions, or verification results that materially change confidence.",
+      "Do not use publish_bulletin for every tool call, routine file read, search, minor step, generic progress note, or basic 'starting', 'working', or 'done' update.",
+      "Prefer normal chat for lightweight progress. Use the bulletin board when the update will remain useful as a checkpoint later.",
       "In publish_bulletin, title is a short non-Markdown section heading, message is a concise plain-text summary, and markdownDetails should be raw Markdown, not a single fenced text block. Use `##` headings and `-` lists directly; reserve fenced code blocks only for real code or log excerpts.",
     ],
     parameters: PublishBulletinSchema,
