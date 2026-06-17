@@ -118,7 +118,7 @@ Clear the board for the current session:
 | `Alt+Shift+M` | Open or close the bulletin board |
 | `Esc` | Close the board while focused |
 | `PgUp` / `PgDn` | Page through entries |
-| `Shift+↑` / `Shift+↓` | Smooth-scroll entries one line at a time |
+| `↑` / `↓` | Smooth-scroll entries one line at a time |
 
 ## Configuration
 
@@ -128,7 +128,7 @@ Create `config.json` next to the extension file:
 {
   "shortcut": "alt+shift+m",
   "width": "90%",
-  "maxHeight": "70%"
+  "maxHeight": "85%"
 }
 ```
 

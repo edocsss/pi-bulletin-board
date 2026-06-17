@@ -14,6 +14,10 @@ function withTempDir(fn: (dir: string) => void): void {
 }
 
 describe("config", () => {
+  it("uses 85% as the default max height", () => {
+    expect(DEFAULT_CONFIG.maxHeight).toBe("85%");
+  });
+
   it("returns defaults when config file is missing", () => {
     withTempDir((dir) => {
       expect(loadConfig(dir)).toEqual(DEFAULT_CONFIG);

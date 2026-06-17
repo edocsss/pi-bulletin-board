@@ -172,9 +172,12 @@ describe("bulletin rendering", () => {
 
     const smoothOverlay = makeOverlay();
     smoothOverlay.render(80);
-    smoothOverlay.handleInput("\u001b[1;2B");
+    smoothOverlay.handleInput("\u001b[B");
     expect((smoothOverlay as unknown as { scrollOffset: number }).scrollOffset).toBe(1);
-    smoothOverlay.handleInput("\u001b[1;2A");
+    smoothOverlay.handleInput("\u001b[A");
+    expect((smoothOverlay as unknown as { scrollOffset: number }).scrollOffset).toBe(0);
+
+    smoothOverlay.handleInput("\u001b[1;2B");
     expect((smoothOverlay as unknown as { scrollOffset: number }).scrollOffset).toBe(0);
   });
 

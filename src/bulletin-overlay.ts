@@ -174,7 +174,7 @@ export class BulletinOverlay implements Component, Focusable {
     for (const line of visible) lines.push(this.frameLine(line, width));
     for (let i = visible.length; i < maxVisible; i += 1) lines.push(this.frameLine("", width));
     lines.push(theme.fg(borderColor, "├" + "─".repeat(width - 2) + "┤"));
-    lines.push(this.frameLine(theme.fg("dim", `PgUp/PgDn page · Shift+↑/↓ smooth · Esc/${shortcut} close`), width));
+    lines.push(this.frameLine(theme.fg("dim", `PgUp/PgDn page · ↑/↓ smooth · Esc/${shortcut} close`), width));
     lines.push(theme.fg(borderColor, "└" + "─".repeat(width - 2) + "┘"));
     return lines.map((line) => (visibleWidth(line) > width ? truncateToWidth(line, width) : line));
   }
@@ -203,13 +203,13 @@ export class BulletinOverlay implements Component, Focusable {
       return;
     }
 
-    if (matchesKey(data, Key.shift("up"))) {
+    if (matchesKey(data, Key.up)) {
       this.scrollOffset = Math.max(0, this.scrollOffset - 1);
       this.options.tui.requestRender();
       return;
     }
 
-    if (matchesKey(data, Key.shift("down"))) {
+    if (matchesKey(data, Key.down)) {
       this.scrollOffset = Math.min(maxOffset, this.scrollOffset + 1);
       this.options.tui.requestRender();
     }

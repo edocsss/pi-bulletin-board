@@ -12,7 +12,7 @@ export interface BulletinConfig {
 export const DEFAULT_CONFIG: BulletinConfig = {
   shortcut: "alt+shift+m",
   width: "90%",
-  maxHeight: "70%",
+  maxHeight: "85%",
 };
 
 function isPlainObject(value: unknown): value is Record<string, unknown> {
